@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speciality</title>
+</head>
+<body bgcolor="yellow">
+ <h2>Yo'nalishni tahrirlash</h2>
+<form method="post" action="/yonalishlar/{{yonalishlar.id}}/edit/" style="color:white">{% csrf_token %}
+    <input type="text" value="{{yonalishlar.name}}" name="n">
+    <input type="number" value="{{yonalishlar.code}}" name="c">
+    <input type="date" value="{{yonalishlar.start_date}}" name="sd">
+    <input type="checkbox" value="{{yonalishlar.is_active}}" name="ia">
+    <button type="submit" >Tahrirlash</button>
+</form>
+</body>
+</html>

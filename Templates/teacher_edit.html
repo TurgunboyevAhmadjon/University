@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Edit</title>
+</head>
+<body>
+<h2>Teacher Edit</h2>
+
+<form method="post" action="/teacher/{{teacher.id}}/edit/" style="color:white">{% csrf_token %}
+    <input type="text" value="{{teacher.first_name}}" name="f_n">
+    <input type="text" value="{{teacher.last_name}}" name="l_n">
+    <input type="text" value="{{teacher.degree}}" name="d">
+    <button type="submit" >Tahrirlash</button>
+</form>
+</form>
+</body>
+</html>

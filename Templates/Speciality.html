@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Bizda Bor Yonalishlar</h2> <br>
+{% for i in yonalish %}
+    <h2>{{i.name}}</h2> <br>
+    <button type="submit"><a href="/yonalish/{{i.pk}}/" style="text-decoration:none">O'chirish</a></button>
+    <button type="submit"><a href="/yonalishlar/{{i.pk}}/edit" style="text-decoration:none">Tahrirlash</a></button>
+{% endfor %}
+
+<form method="post" action='/yonalish/'>{% csrf_token %}
+<input type="text" placeholder="Name" name="n"> <br>
+<input type="number" placeholder="Code" name="c"> <br>
+<button type="submit">Qoshish</button>
+</form>
+</body>
+</html>
