@@ -2,11 +2,10 @@ from django.contrib import admin
 from django.urls import path
 from courses.views import *
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('fan/', fan),
-    path('oqituvchilar', teacher),
+    path('oqituvchilar/', teacher),
     path('oqituvchi/<int:pk>/', teacher_del),
     path('teacher/<int:pk>/edit/', teacher_edit),
     path('yonalishlar/', speciality),

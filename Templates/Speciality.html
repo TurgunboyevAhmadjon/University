@@ -12,9 +12,10 @@
     <button type="submit"><a href="/yonalishlar/{{i.pk}}/edit" style="text-decoration:none">Tahrirlash</a></button>
 {% endfor %}
 
-<form method="post" action='/yonalish/'>{% csrf_token %}
-<input type="text" placeholder="Name" name="n"> <br>
-<input type="number" placeholder="Code" name="c"> <br>
+<form method="post" action='/yonalishlar/'>{% csrf_token %}
+<!--<input type="text" placeholder="Name" name="n"> <br>-->
+<!--<input type="number" placeholder="Code" name="c"> <br>-->
+    {{forma}}
 <button type="submit">Qoshish</button>
 </form>
 </body>

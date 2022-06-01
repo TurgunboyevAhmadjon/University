@@ -5,9 +5,8 @@ class Speciality(models.Model):
     code = models.IntegerField()
     start_date = models.DateField(null=True)
     is_active = models.CharField(max_length=15)
-    def str(self):
+    def __str__(self):
         return self.name
-
 class Teacher(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)

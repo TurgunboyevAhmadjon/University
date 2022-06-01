@@ -18,6 +18,7 @@ class SpecialityAdmin(ModelAdmin):
     list_filter = ('id','name', 'code',)
     search_fields = ('start_code',)
     list_display = ('code','name', 'start_date', 'is_active',)
+    list_editable = ('is_active',)
 
 @admin.register(Subject)
 class SubjectAdmin(ModelAdmin):

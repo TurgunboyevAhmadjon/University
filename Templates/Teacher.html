@@ -8,15 +8,16 @@
 <h2>Bizda Bor Ustozlar</h2>
 {% for i in oqituvchi %}
     <h2>{{i.first_name}}, {{i.last_name}}, {{i.degree}}</h2>
-    <button type="submit"><a href="/oqituvchilar/{{i.id}}/" style="text-decoration:none">O'chirish</a></button>
+    <button type="submit"><a href="/oqituvchi/{{i.id}}/" style="text-decoration:none">O'chirish</a></button>
     <button type="submit"><a href="/teacher/{{i.pk}}/edit/" style="text-decoration:none">Tahrirlash</a></button>
 {% endfor %}
 <form method="post" action='/oqituvchilar/'>{% csrf_token %}
-    <input type="text" placeholder="FirstName" name="f_n"> <br>
-    <input type="text" placeholder="LastName" name="l_n"> <br>
-    <p>Degree</p>
-    <input type="text" name="d"><br>
-    <button>Qoshish</button>
+<!--    <input type="text" placeholder="FirstName" name="f_n"> <br>-->
+<!--    <input type="text" placeholder="LastName" name="l_n"> <br>-->
+<!--    <p>Degree</p>-->
+<!--    <input type="text" name="d"><br>-->
+    {{forma.as_p}}
+    <button type="submit">Qoshish</button>
 </form>
 </body>
 </html>

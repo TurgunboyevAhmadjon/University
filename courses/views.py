@@ -1,29 +1,39 @@
 from django.shortcuts import render
 
-# Create your views here.
 from django.shortcuts import render, HttpResponse
 from django.shortcuts import render, redirect
 from .models import *
+from .forms import *
 
 def fan(request):
     fanlar = Subject.objects.all()
+    if request.method == 'POST':
+        f =FanForm(request.POST)
+        if f.is_valid():
+            f.save()
+        return redirect('/fan/')
     data = {
-        'fan': fanlar,
+        'forma':FanForm(),
+        'fan': fanlar
     }
     return render(request, 'Subject.html', data)
 
 
 def teacher(request):
     if request.method == 'POST':
-        Teacher.objects.create(
-            first_name = request.POST.get('f_n'),
-            last_name = request.POST.get('l_n'),
-            degree = request.POST.get('d')
-        )
-        return redirect("/oqituvchi/")
+        t = TeacherForm(request.POST)
+        if t.is_valid():
+            data = t.cleaned_data
+            Teacher.objects.create(
+                first_name = data.get('first_name'),
+                last_name = data.get('last_name'),
+                degree = data.get('degree'),
+            )
+        return redirect("/oqituvchilar/")
     teach = Teacher.objects.all()
     o_t = {
-        'oqituvchilar': teach,
+        'forma':TeacherForm(),
+        'oqituvchi': teach
     }
     return render(request, 'Teacher.html', o_t)
 
@@ -47,14 +57,18 @@ def teacher_edit(request, pk):
 
 def speciality(request):
     if request.method == 'POST':
-        Speciality.objects.create(
-            name = request.POST.get('n'),
-            code = request.POST.get('c')
-        )
-        return redirect("/yonalish/")
+        s = YonalishForm(request.POST)
+        if s.is_valid():
+            s.save()
+        # Speciality.objects.create(
+        #     name = request.POST.get('n'),
+        #     code = request.POST.get('c')
+        # )
+        return redirect("/yonalishlar/")
     yonalish = Speciality.objects.all()
     sy = {
-        'yonalish': yonalish,
+        'forma': YonalishForm(),
+        'yonalish': yonalish
     }
     return render(request, 'Speciality.html', sy)
 
